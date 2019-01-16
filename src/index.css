@@ -96,7 +96,6 @@ h2 {
 
 .SearchResults {
   width: 50%;
-  height: 950px;
   overflow-y: scroll;
   padding: .88rem;
   background-color: rgba(1, 12, 63, 0.7);
@@ -121,7 +120,6 @@ h2 {
   align-items: center;
   overflow-y: scroll;
   width: 37%;
-  max-height: 950px;
   padding: 2.27rem 1.16rem;
   background-color: rgba(1, 12, 63, 0.7);
   box-shadow: 0 4px 2px 2px #000000;
