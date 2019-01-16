@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Playlist from './components/Playlist/Playlist';
 import SearchResults from "./components/SearchResults/SearchResults";
+import SearchBar from "./components/SearchBar/SearchBar";
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
         <div className="App">
           <h1>Ja<span className="highlight">mmm</span>ing</h1>
-          <div className="SearchBar">
-            <input placeholder="Enter A Song Title"/>
-            <a>SEARCH</a>
-          </div>
+          <SearchBar/>
           <div className="App-playlist">
             <SearchResults/>
             <Playlist/>
