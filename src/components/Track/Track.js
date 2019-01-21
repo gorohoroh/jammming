@@ -13,4 +13,6 @@ class Track extends React.Component {
         </div>
     }
 
+    // TODO From step 27:  Create a method called renderAction that displays a - anchor tag if the isRemoval property is true, and a + anchor tag if the isRemoval property is false. Set the class name to Track-action. No idea what I'm expected to do so far...
+
 }
