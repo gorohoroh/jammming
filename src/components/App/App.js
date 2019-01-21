@@ -8,7 +8,41 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loggedIn: false
+            loggedIn: false,
+            searchResults: {
+                tracks: [
+                    {
+                        name: 'Tiny Dancer',
+                        artist: 'Elton John',
+                        album: 'Madman Across The Water',
+                        id: 1
+                    },
+                    {
+                        name: 'Tiny Dancer',
+                        artist: 'Tim McGraw',
+                        album: 'Love Story',
+                        id: 2
+                    },
+                    {
+                        name: 'Tiny Dancer',
+                        artist: 'Rockabye Baby!',
+                        album: 'Lullaby Renditions of Elton John',
+                        id: 3
+                    },
+                    {
+                        name: 'Tiny Dancer',
+                        artist: 'The White Raven',
+                        album: 'Tiny Dancer',
+                        id: 4
+                    },
+                    {
+                        name: 'Tiny Dancer - Live Album Version',
+                        artist: 'Ben Folds',
+                        album: 'Ben Folds Live',
+                        id: 5
+                    }
+                ]
+            }
         };
         this.authenticate = this.authenticate.bind(this);
     }
@@ -20,7 +54,7 @@ class App extends React.Component {
                 <button onClick={this.authenticate}>Log in with Spotify</button>
             </div>}
           <div className="App-playlist">
-            <SearchResults/>
+            <SearchResults searchResults={this.state.searchResults}/>
             <Playlist/>
           </div>
         </div>
