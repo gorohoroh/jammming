@@ -2,6 +2,7 @@ import React from "react";
 
 class TrackList extends React.Component {
     render() {
+        // TODO replace with Track components when ready
         return <div className="TrackList">
             <div className="Track">
                 <div className="Track-information">
