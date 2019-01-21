@@ -2,6 +2,7 @@ import React from 'react';
 import Playlist from '../Playlist/Playlist';
 import SearchResults from "../SearchResults/SearchResults";
 import SearchBar from "../SearchBar/SearchBar";
+import './App.css';
 
 class App extends React.Component {
     constructor(props) {
