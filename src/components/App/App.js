@@ -62,6 +62,14 @@ class App extends React.Component {
             }
         };
         this.authenticate = this.authenticate.bind(this);
+        this.addTrack = this.addTrack.bind(this);
+    }
+
+    addTrack(track) {
+        if (!this.state.playlist.tracks.includes(item => item.id === track.id)) { // TODO not sure this actually searches the array correctly
+            this.setState(this.state.playlist.tracks.push(track)); // TODO not sure this actually updates state correctly
+
+        }
     }
 
     render() {
@@ -72,7 +80,7 @@ class App extends React.Component {
                     <button onClick={this.authenticate}>Log in with Spotify</button>
                 </div>}
                 <div className="App-playlist">
-                    <SearchResults searchResults={this.state.searchResults}/>
+                    <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
                     <Playlist playlist={this.state.playlist}/>
                 </div>
             </div>
