@@ -6,9 +6,9 @@ class TrackList extends React.Component {
     render() {
         return <div className="TrackList">
             {
-                !this.props.searchResults ?
+                !this.props.tracklist ?
                     <span>No tracks available</span> :
-                    this.props.searchResults.tracks.map(track =>
+                    this.props.tracklist.tracks.map(track =>
                         <Track key={track.id}
                                artist={track.artist}
                                album={track.album}

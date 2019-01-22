@@ -42,6 +42,23 @@ class App extends React.Component {
                         id: 5
                     }
                 ]
+            },
+            playlist: {
+                name: 'My playlist',
+                tracks: [
+                    {
+                        name: 'Saving All My Love for You',
+                        artist: 'Marilyn McCoo & Billy Davis Jr.',
+                        album: 'Marilyn & Billy',
+                        id: 1
+                    },
+                    {
+                        name: 'Tiny Dancer',
+                        artist: 'The White Raven',
+                        album: 'Tiny Dancer',
+                        id: 4
+                    }
+                ]
             }
         };
         this.authenticate = this.authenticate.bind(this);
@@ -55,7 +72,7 @@ class App extends React.Component {
             </div>}
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults}/>
-            <Playlist/>
+            <Playlist playlist={this.state.playlist}/>
           </div>
         </div>
     );
