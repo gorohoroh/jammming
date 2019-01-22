@@ -66,11 +66,12 @@ class App extends React.Component {
     }
 
     addTrack(track) {
-        if (!this.state.playlist.tracks.includes(item => item.id === track.id)) { // TODO not sure this actually searches the array correctly
-            this.setState(this.state.playlist.tracks.push(track)); // TODO not sure this actually updates state correctly
-
+        if (!this.state.playlist.tracks.find(item => item.id === track.id)) {
+            this.setState(this.state.playlist.tracks.concat(track));
         }
     }
+
+    removeTrack(track) { this.setState(this.state.playlist.tracks.filter(item => item.id !== track.id)); }
 
     render() {
         return (
