@@ -63,15 +63,22 @@ class App extends React.Component {
         };
         this.authenticate = this.authenticate.bind(this);
         this.addTrack = this.addTrack.bind(this);
+        this.removeTrack = this.removeTrack.bind(this);
     }
 
     addTrack(track) {
         if (!this.state.playlist.tracks.find(item => item.id === track.id)) {
-            this.setState(this.state.playlist.tracks.concat(track));
+            let stateToModify = this.state;
+            stateToModify.playlist.tracks = stateToModify.playlist.tracks.concat(track);
+            this.setState(stateToModify);
         }
     }
 
-    removeTrack(track) { this.setState(this.state.playlist.tracks.filter(item => item.id !== track.id)); }
+    removeTrack(track) {
+        let stateToModify = this.state;
+        stateToModify.playlist.tracks = stateToModify.playlist.tracks.filter(item => item.id !== track.id);
+        this.setState(stateToModify);
+    }
 
     render() {
         return (
@@ -82,7 +89,7 @@ class App extends React.Component {
                 </div>}
                 <div className="App-playlist">
                     <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-                    <Playlist playlist={this.state.playlist}/>
+                    <Playlist playlist={this.state.playlist} onRemove={this.removeTrack} />
                 </div>
             </div>
         );
