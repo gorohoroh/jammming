@@ -66,6 +66,7 @@ class App extends React.Component {
         this.removeTrack = this.removeTrack.bind(this);
         this.updatePlaylistName = this.updatePlaylistName.bind(this);
         this.savePlaylist = this.savePlaylist.bind(this);
+        this.search = this.search.bind(this);
     }
 
     addTrack(track) {
@@ -98,13 +99,20 @@ class App extends React.Component {
         })
     }
 
+    search(term) {
+        console.log(term)
+    }
+
     render() {
         return (
             <div className="App">
                 <h1>Ja<span className="highlight">mmm</span>ing</h1>
-                {this.state.loggedIn ? <SearchBar/> : <div className="SearchBar">
-                    <button onClick={this.authenticate}>Log in with Spotify</button>
-                </div>}
+                {!this.state.loggedIn ?
+                    <div className="SearchBar">
+                        <button onClick={this.authenticate}>Log in with Spotify</button>
+                    </div> :
+                    <SearchBar onSearch={this.search}/>
+                }
                 <div className="App-playlist">
                     <SearchResults searchResults={this.state.searchResults}
                                    onAdd={this.addTrack}/>
