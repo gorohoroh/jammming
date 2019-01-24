@@ -64,6 +64,7 @@ class App extends React.Component {
         this.authenticate = this.authenticate.bind(this);
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
+        this.updatePlaylistName = this.updatePlaylistName.bind(this);
     }
 
     addTrack(track) {
@@ -80,6 +81,14 @@ class App extends React.Component {
         this.setState(stateToModify);
     }
 
+    updatePlaylistName(name) {
+        if (this.state.playlist.name !== name) {
+            let stateToModify = this.state;
+            stateToModify.playlist.name = name;
+            this.setState(stateToModify);
+        }
+    }
+
     render() {
         return (
             <div className="App">
@@ -88,8 +97,11 @@ class App extends React.Component {
                     <button onClick={this.authenticate}>Log in with Spotify</button>
                 </div>}
                 <div className="App-playlist">
-                    <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-                    <Playlist playlist={this.state.playlist} onRemove={this.removeTrack} />
+                    <SearchResults searchResults={this.state.searchResults}
+                                   onAdd={this.addTrack}/>
+                    <Playlist playlist={this.state.playlist}
+                              onRemove={this.removeTrack}
+                              onNameChange={this.updatePlaylistName}/>
                 </div>
             </div>
         );
