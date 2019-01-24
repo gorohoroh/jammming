@@ -65,6 +65,7 @@ class App extends React.Component {
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
         this.updatePlaylistName = this.updatePlaylistName.bind(this);
+        this.savePlaylist = this.savePlaylist.bind(this);
     }
 
     addTrack(track) {
@@ -89,6 +90,14 @@ class App extends React.Component {
         }
     }
 
+    savePlaylist() {
+        const trackURIs = this.state.playlist.tracks.map(track => {
+            // (Step 63.) Generates an array of uri values called trackURIs from the playlistTracks property.
+            // In a later step, you will pass the trackURIs array and playlistName to a method that will save the user's playlist to their account.
+            // See https://codecademy-bwa-3.slack.com/archives/CC8NCDW05/p1546719527077200
+        })
+    }
+
     render() {
         return (
             <div className="App">
@@ -101,7 +110,8 @@ class App extends React.Component {
                                    onAdd={this.addTrack}/>
                     <Playlist playlist={this.state.playlist}
                               onRemove={this.removeTrack}
-                              onNameChange={this.updatePlaylistName}/>
+                              onNameChange={this.updatePlaylistName}
+                              onSave={this.savePlaylist}/>
                 </div>
             </div>
         );
